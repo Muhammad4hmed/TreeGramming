@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>570</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans Ultra Bold</family>
+    <pointsize>16</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;Gill Sans Ultra Bold&quot;;
+color: rgb(0, 0, 0);</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>150</y>
+      <width>401</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+background-color: rgb(113, 0, 111);
+color: rgb(255, 255, 255);
+background-color: rgb(255, 2, 251);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(153, 0, 167);
+background-color: rgb(120, 0, 124);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>BST for Strings</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(153, 0, 167);
+background-color: rgb(120, 0, 124);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Decision Tree </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(153, 0, 167);
+background-color: rgb(120, 0, 124);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Machine Learning</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+background-color: rgb(153, 0, 167);
+background-color: rgb(120, 0, 124);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>About</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>570</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTreegramming">
+    <property name="title">
+     <string>Treegramming</string>
+    </property>
+   </widget>
+   <addaction name="menuTreegramming"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
