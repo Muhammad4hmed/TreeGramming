@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>570</width>
-    <height>572</height>
+    <width>647</width>
+    <height>715</height>
    </rect>
   </property>
   <property name="font">
@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);
 font: 16pt &quot;Gill Sans Ultra Bold&quot;;
@@ -28,25 +31,25 @@ color: rgb(0, 0, 0);</string>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>150</y>
-      <width>401</width>
-      <height>341</height>
+      <x>90</x>
+      <y>380</y>
+      <width>461</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-background-color: rgb(113, 0, 111);
-color: rgb(255, 255, 255);
-background-color: rgb(255, 2, 251);</string>
+alternate-background-color: rgb(79, 171, 4);
+background-color: rgb(35, 121, 4);
+color: rgb(255, 255, 255);</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
-background-color: rgb(153, 0, 167);
-background-color: rgb(120, 0, 124);
+background-color: rgb(35, 121, 4);
+background-color: rgb(51, 179, 11);
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
@@ -58,8 +61,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pushButton_3">
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
-background-color: rgb(153, 0, 167);
-background-color: rgb(120, 0, 124);
+background-color: rgb(35, 121, 4);
+background-color: rgb(51, 179, 11);
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
@@ -71,12 +74,12 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pushButton_4">
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
-background-color: rgb(153, 0, 167);
-background-color: rgb(120, 0, 124);
+background-color: rgb(35, 121, 4);
+background-color: rgb(51, 179, 11);
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
-        <string>Machine Learning</string>
+        <string>Natural Language Processing</string>
        </property>
       </widget>
      </item>
@@ -84,8 +87,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pushButton">
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
-background-color: rgb(153, 0, 167);
-background-color: rgb(120, 0, 124);
+background-color: rgb(35, 121, 4);
+background-color: rgb(51, 179, 11);
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
@@ -95,13 +98,54 @@ color: rgb(255, 255, 255);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>0</y>
+      <width>361</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/Muhammad Ahmed/Downloads/1575625496538.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>320</y>
+      <width>670</width>
+      <height>310</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/Muhammad Ahmed/Downloads/grass.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_2</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>label</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>570</width>
+     <width>647</width>
      <height>36</height>
     </rect>
    </property>

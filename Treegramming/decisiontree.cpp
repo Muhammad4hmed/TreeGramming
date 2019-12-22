@@ -1,5 +1,6 @@
 #include "decisiontree.h"
 #include <string.h>
+#include <QMessageBox>
 #include <QQueue>
 #include <string>
 #include "ui_decisiontree.h"
@@ -144,27 +145,29 @@ public :
 };
 
 Tree t;
-
+Node *searchedNode = nullptr;
 void AddNode( ) {
     std::string name , gender;
     int age ;
-    bool ok , goodToGo;
+    bool ok = false, goodToGo = false;
     QString text = QInputDialog::getText(0 , "Enter Name ", "Name: ",QLineEdit::Normal, "", &ok );
-    if( ok && !text.isEmpty() ) {
+    if( ok && !text.isEmpty() && text != "" ) {
         name = text.toStdString() ;
     }
     text = QInputDialog::getText(0 , "Enter Age ", "Age: ",QLineEdit::Normal, "", &ok );
-    if( ok && !text.isEmpty() ) {
+    if( ok && !text.isEmpty() && text != "" ) {
         age = text.toInt();
-        ok = true;;
     }
     text = QInputDialog::getText(0 , "Enter Gender ", "Gender: ",QLineEdit::Normal, "", &ok );
-    if( ok && !text.isEmpty() ) {
+    if( ok && !text.isEmpty() && text != "" ) {
         gender = text.toStdString();
         goodToGo = true ;
     }
 
     if( goodToGo ) t.addNode( name , gender , age );
+    else {
+        QMessageBox::critical( nullptr ,"Wrong Information","Kindly enter correct information");
+    }
 }
 void blackAll( Node *root ) {
     if( root != NULL ) {
@@ -176,11 +179,14 @@ void blackAll( Node *root ) {
 }
 void SearchNode() {
     blackAll( t.root );
+    if(searchedNode)
+    searchedNode->name->setDefaultTextColor( Qt::black );
     bool ok = 0 ;
     std::string name1;
+    bool found = 0 ;
     QGraphicsTextItem *name;
     QString text = QInputDialog::getText(0 , "Enter name to search " ,"Name: " ,QLineEdit::Normal , "" , &ok);
-    if( ok && !text.isEmpty() ) {
+    if( ok && !text.isEmpty() && text != "") {
         Node *n = t.root ;
         name1 = text.toStdString();
         // using bfs to search
@@ -195,19 +201,35 @@ void SearchNode() {
             if( tt->rightChild ) q.enqueue( tt->rightChild );
             if( tt->next ) q.enqueue( tt->next );
             if( tt->name->toPlainText() == name->toPlainText() ) {
+                found = true;
                 Node *temp = tt;
                 temp->name->setDefaultTextColor( Qt::red );
                 while( temp != t.maleOldage && temp != t.maleYoung && temp != t.femaleYoung && temp != t.femaleOldage ) temp = temp->prev;
                 while( temp != NULL ) {
                     temp->name->setDefaultTextColor( Qt::red );
+                    searchedNode = temp;
                     temp = temp->prev ;
                 }
             }
         }
+    } else {
+        QMessageBox::critical( nullptr ,"Wrong Information","Kindly enter correct search information");
+    }
+    if( !found ) {
+        QMessageBox::critical( nullptr ,"Not Found","Given search key not found ");
+    }
+}
+void destroyTree( Node *root ) {
+    if( root != nullptr ){
+        destroyTree( root->leftChild );
+        destroyTree( root->rightChild );
+        delete root;
     }
 }
 void ClearTree() {
+    destroyTree( t.root );
     scene->clear();
+    searchedNode = nullptr;
     t.generateHeadTree();
 }
 DecisionTree::DecisionTree(QWidget *parent) :

@@ -28,17 +28,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     bstforstrings.cpp \
-    decisiontree.cpp
+    decisiontree.cpp \
+    sentimentanalysis.cpp
 
 HEADERS += \
         mainwindow.h \
     bstforstrings.h \
-    decisiontree.h
+    decisiontree.h \
+    sentimentanalysis.h
 
 FORMS += \
         mainwindow.ui \
     bstforstrings.ui \
-    decisiontree.ui
+    decisiontree.ui \
+    sentimentanalysis.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "sentimentanalysis.h"
 #include "ui_mainwindow.h"
 #include "bstforstrings.h"
 #include "decisiontree.h"
@@ -27,4 +28,10 @@ void MainWindow::on_pushButton_3_clicked()
 {
     DecisionTree *decisionTree = new DecisionTree;
     decisionTree->show();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    SentimentAnalysis *sa = new SentimentAnalysis;
+    sa->show();
 }

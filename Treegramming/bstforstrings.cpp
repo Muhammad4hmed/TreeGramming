@@ -14,23 +14,14 @@
 #include <QLabel>
 #include <string>
 
-/*
- * this is the node used in BST
- * all drawing is done in this Node class
-*/
 class Node{
     public:
-        // key is the element in the node which is a string
         std::string key;
-        // left and right child
         Node *left;
         Node *right;
-        // coordinates where we have to draw the node in the scene
         int x, y;
-        // vnode is the text to be displayed in the scene
         QGraphicsTextItem* vnode;
         QGraphicsLineItem* pline;
-        // we hold the reference of the scene where we will draw the lines and texts
         QGraphicsScene* scene;
 
         Node(std::string e, int xcoord, int ycoord, QGraphicsScene* scn) {
@@ -48,12 +39,10 @@ class Node{
             removeText();
         }
 
-        // set text color to red
         void highlightNode() {
             vnode->setDefaultTextColor(Qt::red);
         }
 
-        // set text color to black
         void unhighlightNode() {
             vnode->setDefaultTextColor(Qt::black);
         }
@@ -61,19 +50,19 @@ class Node{
         void addTextToScene(std::string e) {
             vnode = new QGraphicsTextItem(QString::fromStdString(e));
             vnode->setPos(x, y);
-            scene->addItem(vnode); // adding text to scene
+            scene->addItem(vnode);
         }
 
         void removeText() {
             if (vnode != nullptr){
-                delete vnode; // removing text from scene
+                delete vnode;
                 vnode = nullptr;
             }
         }
 
-        void connectLineToParent(Node* p) // parent coords
+        void connectLineToParent(Node* p)
         {
-            pline = scene->addLine(QLineF(p->x+20, p->y+20, x, y)); // drawing line from child to parent.
+            pline = scene->addLine(QLineF(p->x+20, p->y+20, x, y));
         }
 
         void removeLine() {
@@ -83,7 +72,6 @@ class Node{
             }
         }
 
-        // once a node is moved, we need to displace its childs too
         void adjustNodesToNewLocation(Node* p) {
             if(p->left != nullptr) {
                 p->left->removeLine();
@@ -105,7 +93,6 @@ class Node{
             }
         }
 
-        // for moving nodes so that they don't intersect each other
         void displaceVisualNodeByFactor(Node* p, double fact) {
             removeLine();
             removeText();
@@ -127,21 +114,18 @@ class BST {
         scene = scn;
     }
 
-    // simple BST insertion routine
     void insert(std::string e, Node* p = nullptr) {
         if(head == nullptr) {
             head = new Node(e, 0, 0, scene);
             head->addTextToScene(e);
         } else {
-            if (p == nullptr) // if p is null, we pick head and start from there.
+            if (p == nullptr)
                 p = head;
             if (e >= p->key) {
                 if (p->right == nullptr) {
-                    // we insert new child below current node, thats why we add +ve value to y axis
-                    // we insert new child right to current node, thats why we add +ve value to x axis
                     p->right =  new Node(e, p->x+100, p->y+80, scene);
-                    p->right->connectLineToParent(p); // joining parent and child with line
-                    p->right->addTextToScene(e); // add text to scene
+                    p->right->connectLineToParent(p);
+                    p->right->addTextToScene(e);
                 }
                 else {
                     p->right->displaceVisualNodeByFactor(p, 1.5);
@@ -150,8 +134,6 @@ class BST {
             }
             else if(e < p->key) {
                 if (p->left == nullptr) {
-                    // we insert new child below current node, thats why we add +ve value to y axis
-                    // we insert new child left to the current node, thats why we add -ve value to x axis
                     p->left = new Node(e, p->x-60, p->y+80, scene);
                     p->left->connectLineToParent(p);
                     p->left->addTextToScene(e);
@@ -164,9 +146,7 @@ class BST {
         }
     }
 
-    // simple BST search routine
     bool searchNode(std::string e) {
-        // unhighlight previously highlighted node
         if (lastSearchedNode != nullptr) {
             lastSearchedNode->unhighlightNode();
         }
@@ -186,7 +166,6 @@ class BST {
         return false;
     }
 
-    // simple clear tree contents routine
     void clearTree() {
         clearTreeHelper(head);
         head = nullptr;
@@ -258,6 +237,9 @@ BSTforStrings::BSTforStrings(QWidget *parent) :
         QPushButton* addButton = new QPushButton("Add Node");
         QPushButton* searchButton = new QPushButton("Search Node");
         QPushButton* clearButton = new QPushButton("Clear Tree");
+        addButton->setStyleSheet("background-color: rgb(255, 35, 6); color: rgb(255, 255, 255);");
+        searchButton->setStyleSheet("background-color: rgb(255, 35, 6); color: rgb(255, 255, 255);");
+        clearButton->setStyleSheet("background-color: rgb(255, 35, 6); color: rgb(255, 255, 255);");
 
         QObject::connect(addButton, &QPushButton::released, addNodeAction);
         QObject::connect(searchButton, &QPushButton::released, searchNodeAction);
