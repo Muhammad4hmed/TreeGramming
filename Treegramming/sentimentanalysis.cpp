@@ -15,8 +15,8 @@ SentimentAnalysis::SentimentAnalysis(QWidget *parent) :
 {
     ui->setupUi(this);
     setFixedSize(width(), height());
-    ui->textEdit->setEnabled(false);
-    ui->pushButton_2->setEnabled(false);
+//    ui->textEdit->setEnabled(false);
+//    ui->pushButton_2->setEnabled(false);
 }
 
 SentimentAnalysis::~SentimentAnalysis()
